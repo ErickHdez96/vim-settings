@@ -5,10 +5,10 @@
 set modeline
 
 " Colorscheme
-let g:airline_powerline_fonts=1
+"let g:airline_powerline_fonts=1
 set termguicolors
 set background=dark
-let g:gruvbox_italic=1
+"let g:gruvbox_italic=1
 colorscheme gruvbox
 
 " Vim leader maps
@@ -85,9 +85,10 @@ nnoremap <expr> k (v:count > 1 ? 'k' : 'gk')
 set undofile
 
 " Typescript support
-"autocmd BufNewFile,BufReadPre,FileReadPre *.{tsx,ts} packadd vim-jsx-typescript | packadd typescript-vim | set filetype=typescript.tsx
-autocmd Filetype typescript setlocal omnifunc=v:lua.vim.lsp.omnifunc
+autocmd BufNewFile,BufReadPre,FileReadPre *.{tsx,ts} set filetype=typescript.tsx "packadd vim-jsx-typescript | packadd typescript-vim | 
+autocmd Filetype typescript,rust,typescriptreact setlocal omnifunc=v:lua.vim.lsp.omnifunc
 autocmd BufNewFile,BufReadPre,FileReadPre *.tig set filetype=tiger
+autocmd BufNewFile,BufReadPre,FileReadPre *.em set filetype=emerald
 autocmd BufNewFile,BufReadPre,FileReadPre *.{jsx,js} packadd vim-jsx
 " Solidity support
 autocmd BufNewFile,BufReadPre,FileReadPre *.sol set filetype=solidity
@@ -106,15 +107,10 @@ omap <Leader><tab> <Plug>(fzf-maps-o)
 autocmd FileType fzf set laststatus=0 noshowmode noruler
 	\| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
-" Coc
 " Prevent hiding and showing column
 set signcolumn=yes
 set hidden
 
-"set updatetime=300
-
-" Show more info
-"set cmdheight=2
 set shortmess+=c
 
 "inoremap <silent><expr> <c-space> coc#refresh()
@@ -136,12 +132,14 @@ set shortmess+=c
 nnoremap <Leader>ck :call CocAction('doHover')<CR>
 " Highlight symbol under cursor on CursorHold
 "autocmd CursorHold * silent call CocActionAsync('highlight')
-
+"
 if filereadable(".vimrc")
 	source .vimrc
 endif
 
-let g:python3_host_prog="/usr/bin/python3"
+"let g:python3_host_prog="/usr/bin/python3"
+
+set rtp+=~/.fzf
 
 " LSP
 
@@ -169,5 +167,7 @@ nnoremap <silent> <Leader>cD <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> <Leader>ck <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <Leader>cr <cmd>lua vim.lsp.buf.references()<CR>
 inoremap <silent> <C-Space> <C-X><C-O>
-nnoremap <silent> <Leader>cr <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <silent> <Leader>cc <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <Leader>cfc <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent> <Leader>cn <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap <silent> <Leader>cp <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>

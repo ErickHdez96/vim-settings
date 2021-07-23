@@ -85,15 +85,8 @@ nnoremap <expr> k (v:count > 1 ? 'k' : 'gk')
 set undofile
 
 " Typescript support
-autocmd BufNewFile,BufReadPre,FileReadPre *.{tsx,ts} set filetype=typescript.tsx "packadd vim-jsx-typescript | packadd typescript-vim | 
-autocmd Filetype typescript,rust,typescriptreact setlocal omnifunc=v:lua.vim.lsp.omnifunc
+autocmd Filetype rust setlocal omnifunc=v:lua.vim.lsp.omnifunc
 autocmd BufNewFile,BufReadPre,FileReadPre *.tig set filetype=tiger
-autocmd BufNewFile,BufReadPre,FileReadPre *.em set filetype=emerald
-autocmd BufNewFile,BufReadPre,FileReadPre *.{jsx,js} packadd vim-jsx
-" Solidity support
-autocmd BufNewFile,BufReadPre,FileReadPre *.sol set filetype=solidity
-" Babel support
-autocmd BufNewFile,BufReadPre,FileReadPre .babelrc set filetype=json
 
 " FZF
 imap <C-X><C-F> <Plug>(fzf-complete-path)
@@ -153,12 +146,6 @@ lspconfig.rust_analyzer.setup{
 	settings = {
 		["rust-analyzer"] = {},
 	},
-}
-
-lspconfig.tsserver.setup{
-	cmd = { "typescript-language-server", "--stdio" },
-	filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
-	root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
 }
 EOF
 

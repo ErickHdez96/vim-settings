@@ -61,8 +61,6 @@ cnoremap <Esc>f <S-Right>
 cnoremap <Esc>b <S-Left>
 
 " Improve experience
-set number
-set relativenumber
 set wildignorecase
 
 set shortmess+=wrI
@@ -106,35 +104,11 @@ set hidden
 
 set shortmess+=c
 
-"inoremap <silent><expr> <c-space> coc#refresh()
-
-"nmap <silent> <Leader>cd <Plug>(coc-definition)
-"nmap <silent> <Leader>cy <Plug>(coc-type-definition)
-"nmap <silent> <Leader>ci <Plug>(coc-implementation)
-"nmap <silent> <Leader>cr <Plug>(coc-references)
-
-"nmap <silent> <Leader>cp <Plug>(coc-diagnostic-prev)
-"nmap <silent> <Leader>cn <Plug>(coc-diagnostic-next)
-
-"nmap <silent> <Leader>cc <Plug>(coc-rename)
-
-"nmap <Leader>cfl <Plug>(coc-codeaction)
-"nmap <Leader>cfc <Plug>(coc-fix-current)
-
-" Use K to show documentation in preview window
-nnoremap <Leader>ck :call CocAction('doHover')<CR>
-" Highlight symbol under cursor on CursorHold
-"autocmd CursorHold * silent call CocActionAsync('highlight')
-"
 if filereadable(".vimrc")
 	source .vimrc
 endif
 
-"let g:python3_host_prog="/usr/bin/python3"
-
 set rtp+=~/.fzf
-
-" LSP
 
 lua << EOF
 local lspconfig = require'lspconfig'

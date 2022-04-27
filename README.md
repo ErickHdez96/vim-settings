@@ -4,7 +4,7 @@ Cloning this repository:
 
 ```bash
 $ cd $HOME/.config
-$ git clone https://github.com/erickhc/neovim-config.git nvim
+$ git clone https://github.com/ErickHdez96/vim-settings.git nvim
 $ cd nvim
 $ ./setup.sh
 ```

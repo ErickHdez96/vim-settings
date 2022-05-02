@@ -11,6 +11,8 @@ set background=dark
 "let g:gruvbox_italic=1
 colorscheme gruvbox
 
+let g:python3_host_prog = '$HOME/.local/bin/neovim'
+
 " Vim leader maps
 let mapleader = ' '
 
@@ -130,5 +132,5 @@ nnoremap <silent> <Leader>cr <cmd>lua vim.lsp.buf.references()<CR>
 inoremap <silent> <C-Space> <C-X><C-O>
 nnoremap <silent> <Leader>cc <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <Leader>cfc <cmd>lua vim.lsp.buf.code_action()<CR>
-nnoremap <silent> <Leader>cn <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
-nnoremap <silent> <Leader>cp <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <silent> <Leader>cn <cmd>lua vim.diagnostic.goto_next()<CR>
+nnoremap <silent> <Leader>cp <cmd>lua vim.diagnostic.goto_prev()<CR>

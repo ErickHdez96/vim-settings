@@ -54,6 +54,8 @@ tnoremap jk <C-\><C-N>
 
 " Prevent moving one character to the right if no command after space
 nnoremap <Space> <nop>
+" I don't use Ex mode
+nnoremap Q <nop>
 
 " Command mappings to act like shell
 cnoremap <C-A> <Home>
@@ -84,8 +86,8 @@ nnoremap <expr> k (v:count > 1 ? 'k' : 'gk')
 " Always undo
 set undofile
 
-" Typescript support
-autocmd Filetype rust setlocal omnifunc=v:lua.vim.lsp.omnifunc
+" Language support
+autocmd Filetype rust,python setlocal omnifunc=v:lua.vim.lsp.omnifunc
 autocmd BufNewFile,BufReadPre,FileReadPre *.tig set filetype=tiger
 
 " FZF
@@ -123,6 +125,10 @@ lspconfig.rust_analyzer.setup{
 		["rust-analyzer"] = {},
 	},
 }
+
+-- lspconfig.pylsp.setup{
+-- 	cmd = { "pylsp" }
+-- }
 EOF
 
 nnoremap <silent> <Leader>cd <cmd>lua vim.lsp.buf.definition()<CR>

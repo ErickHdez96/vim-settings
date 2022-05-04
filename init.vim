@@ -11,7 +11,7 @@ set background=dark
 "let g:gruvbox_italic=1
 colorscheme gruvbox
 
-let g:python3_host_prog = '$HOME/.local/bin/pyneovim'
+let g:python3_host_prog = '$HOME/.local/neovim_python/venv/bin/python'
 
 " Vim leader maps
 let mapleader = ' '

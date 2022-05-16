@@ -126,9 +126,9 @@ lspconfig.rust_analyzer.setup{
 	},
 }
 
--- lspconfig.pylsp.setup{
--- 	cmd = { "pylsp" }
--- }
+lspconfig.pylsp.setup{
+	cmd = { "pylsp" }
+}
 EOF
 
 nnoremap <silent> <Leader>cd <cmd>lua vim.lsp.buf.definition()<CR>
